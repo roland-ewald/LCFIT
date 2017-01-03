@@ -5,8 +5,8 @@
 import logging
 
 ## Logfile name
-LCFIT_LOGFILENAME='/home/webbs/lcfitlog'
-#LCFIT_LOGFILENAME='/tmp/foolog'
+#LCFIT_LOGFILENAME='/home/webbs/lcfitlog'
+LCFIT_LOGFILENAME='/tmp/lcfit'
 
 ## initialize lcfitlogger
 lcfitlogger = logging.getLogger('LCFIT')

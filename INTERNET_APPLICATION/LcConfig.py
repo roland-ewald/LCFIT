@@ -84,10 +84,10 @@ import pylab as PL
 ########################
 
 # For emailing registration alerts
-LCFIT_ADMIN_EMAIL = 'lcfit@demog.berkeley.edu'
+LCFIT_ADMIN_EMAIL = 'no-reply@localhost'
 
 # SMTP Server
-LCFIT_SMTP = "smtp.demog.berkeley.edu"
+LCFIT_SMTP = "localhost"
 
 # If True, give a backtrace instead of a nice error
 LcHardErrors = False
@@ -157,14 +157,14 @@ LCFIT_WWW_RATES_PROCESS		 = 'lc-cgi.py?task=ProcessRates'
 LCFIT_WWW_REG_FORM		 = 'lc-cgi.py?task=Registration'
 LCFIT_WWW_REG_PROCESS		 = 'lc-cgi.py?task=RegistrationProcess'
 
-LCFIT_PREV_PEND_ERROR_PAGE = 'http://lcfit.demog.berkeley.edu/RegistrationError-PendingUsername.html'
-LCFIT_PREV_REG_ERROR_PAGE  = 'http://lcfit.demog.berkeley.edu/RegistrationError-RegisteredUsername.html'
-LCFIT_REG_THX_PAGE	   = 'http://lcfit.demog.berkeley.edu/Registration-ThankYou.html'
+LCFIT_PREV_PEND_ERROR_PAGE = 'http://ewald.es/RegistrationError-PendingUsername.html'
+LCFIT_PREV_REG_ERROR_PAGE  = 'http://ewald.es/RegistrationError-RegisteredUsername.html'
+LCFIT_REG_THX_PAGE	   = 'http://ewald.es/Registration-ThankYou.html'
 ## Important filespace stuff
-APACHEFILEROOT	  = '/var/www/localhost/htdocs'
+APACHEFILEROOT	  = '/var/www/html/larry/lc'
 mypath		  = os.path.realpath(__file__.rstrip("c"))
 mypathL		  = mypath.split(os.sep)[1:-2]
-LCFIT_BASE	  = os.path.normpath(os.path.join(os.sep, *mypathL)) + '/INTERNET_APPLICATION'
+LCFIT_BASE	  = os.path.normpath(os.path.join(os.sep, *mypathL))
 LCFIT_TEMPLATEDIR = LCFIT_BASE + '/TEMPLATES'	# Where the templates for the webpages live
 LCFIT_DATADIR	  = APACHEFILEROOT + '/larry-data' # Where the temporary 
 

@@ -20,7 +20,7 @@ import psycopg2.extensions
 
 # Config stuff
 DB_NAME = 'larrydb'
-EMAIL = 'webbs@demog.berkeley.edu'
+EMAIL = 'no-reply@localhost'
 IS_DEVEL_MACHINE = True					# Is this script being run on 
 LCFIT_WWW_FILE_ROOT = '/var/www/localhost/htdocs' # put the tar of larry here for linking and downloading
 LCFIT_TMP_FILE_ROOT = '/other/webbs/daily' # put the tar  of the database here

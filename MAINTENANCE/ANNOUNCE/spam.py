@@ -18,7 +18,7 @@ if len(sys.argv) != 3:
 DB_NAME = 'larrydb'
 USER_NAME = 'webbs'
 PASSPHRASE = 'hdy352!!%jf'
-LCFITEMAIL = 'lcfit@demog.berkeley.edu'
+LCFITEMAIL = 'no-reply@localhost'
 EMAILTB = 'authorizedusers'
 
 # from db, grab a list of email addresses to send

@@ -206,7 +206,7 @@ if __name__ == '__main__':
             ('LCFIT', 'LCFIT -- Bad Exception: %s' % time.asctime())
         message = '\n'.join(tblist)
         mserver.sendmail(from_addr='no-reply@localhost', 
-                         to_addrs=['lcfit@demog.berkeley.edu'],
+                         to_addrs=['no-reply@localhost'],
                          msg=headers+message)
         mserver.quit()
         raise

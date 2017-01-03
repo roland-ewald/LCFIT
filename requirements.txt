@@ -1,0 +1,8 @@
+Cheetah==2.4.4
+Markdown==2.6.7
+scipy==0.18.1
+postgres==2.2.1
+psycopg2==2.6.2
+numpy==1.11.1
+matplotlib==1.5.1
+scipy==0.18.1

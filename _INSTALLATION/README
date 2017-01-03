@@ -5,7 +5,7 @@
   to make it as platform independent as possible, but there are
   caveats.  (1) I can't imagine it will run on a non-Unix machine
   without an immense amount of work.  (2) Lapack and friends can be
-  quirky to deal with, even with automatic intsall programs like
+  quirky to deal with, even with automatic install programs like
   emerge (or rpm or apt or whatever).  (3) Every server environment
   becomes optimized unconsciously by the administrator, and there are
   likely to be unknown dependencies that will only be weeded out
@@ -13,6 +13,24 @@
 
 * Install dependencies.  python, Cheetah, apache, mod_python, scipy,
   numpy, matplotlib, psycopg2, lapack, postgres
+
+  The setup is working with the following versions:
+  - Ubuntu 16.04.1
+  - Postgres 9.6
+  - python 2.7.12
+  - pip 9.0.1
+  - run `sudo apt install python-psycopg2`, `sudo apt install libpq-dev`, `sudo apt install liblapack-dev`, `sudo apt install httpd2`, `sudo apt install libapache2-mod-python`
+  - see `requirements.txt` and install them via `sudo -H pip install -r requirements.txt`.
+  If this is too slow, use a mirror, e.g. `sudo -H pip install -i https://pypi.fcio.net/simple -r requirements.txt`.
+
+ - Postgres setup:
+    - `reate database larrydb;`
+    - `create role larry with password 'larry';`
+    - `GRANT ALL PRIVILEGES ON DATABASE larrydb to larry;`
+  Then go to `DATABASE` and run:
+  - `psql -d larrydb -f schema.sql`
+  - `psql -d larrydb -f larrydb.sql`
+  - `psql -d larrydb -f populate_larrydb.sql`
 
 * Download LCFIT into a subdirectory of your apache webpages.
   "larry-data/" will hopefully magically appear.  Make sure

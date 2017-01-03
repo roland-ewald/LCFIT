@@ -16,10 +16,10 @@
 
 #### Environment variables for installation ####################
 export APACHE_CONFIG_ROOT='/etc/apache2' # where do we find the apache config files?
-export APACHE_CONFIG_FILE="$APACHE_CONFIG_ROOT/httpd.conf"	# What is the main apache config file?
+export APACHE_CONFIG_FILE="$APACHE_CONFIG_ROOT/apache2.conf"	# What is the main apache config file?
 export MODPYTHON_CONFIG_FILE="$APACHE_CONFIG_ROOT/modules/16_mod_python.conf" # what is the mod_python config file?
 
-export APACHE_HTDOCS_ROOT='/var/www/localhost/htdocs' # Where the main htdocs goes
+export APACHE_HTDOCS_ROOT='/var/www/html' # Where the main htdocs goes
 export LCFIT_APP_ROOT="$APACHE_HTDOCS_ROOT/larry" # Where do we put the main code to be run?
 export LCFIT_SOURCE_ROOT=`echo $PWD | sed 's%/[^/]*/[^/]*$%%' `  # Root of source (up two dirs up from cwd).
 export LCFIT_WWW_ROOT="/larry/lc" # What is the URL path for the LCFIT thing when running under apache?
@@ -31,8 +31,8 @@ export LCFIT_DATABASE="larrydb" # What do we call the main database (Do we need 
 
 # Create lcfit.httpd.conf with template.  Get correct paths by subbing
 # in ENVAR values from above....  
-cheetah compile lcfit.httpd.conf.tmpl
-python ./lcfit.httpd.conf.py --env --stdout > lcfit.httpd.conf
+cheetah compile lcfit_httpd_conf_tmpl
+python ./lcfit_httpd_conf_tmpl.py --env > lcfit.httpd.conf
 
 # ... install the apache config addition in the apache root ...
 cp --backup=numbered lcfit.httpd.conf "$APACHE_CONFIG_ROOT"
@@ -56,8 +56,8 @@ htpasswd -b "$APACHE_CONFIG_ROOT/lcfit.htpasswd" lcfit_test password
 
 ##### modpython configuration ###########################################
 # Create modpython config file with ENVARS
-cheetah compile ./lcfit.modpython.conf.tmpl
-python ./lcfit.modpython.conf.py --env --stdout > lcfit.modpython.conf
+cheetah compile ./lcfit_modpython_conf_tmpl
+python ./lcfit_modpython_conf_tmpl.py --env > lcfit.modpython.conf
 
 # Install the modpython config in apache root
 cp --backup=numbered lcfit.modpython.conf "$APACHE_CONFIG_ROOT/lcfit.modpython.conf"

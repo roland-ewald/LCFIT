@@ -4,7 +4,7 @@
 -- Name: new_lc_user(text, text); Type: FUNCTION; Schema: public; Owner: webbs
 --
 
-CREATE FUNCTION new_lc_user(text, text, text) RETURNS text
+CREATE OR REPLACE FUNCTION new_lc_user(text, text, text) RETURNS text
     LANGUAGE plpgsql
     AS $_$
 DECLARE
@@ -42,7 +42,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION public.new_lc_user(text, text) OWNER TO webbs;
+ALTER FUNCTION new_lc_user(text, text) OWNER TO larry;
 
 --
 -- Name: FUNCTION new_lc_user(text, text); Type: COMMENT; Schema: public; Owner: webbs
