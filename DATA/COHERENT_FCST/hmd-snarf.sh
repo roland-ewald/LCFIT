@@ -1,4 +1,6 @@
-set -e 
+#!/bin/bash
+
+set -e
 set -u 
 
 ## config
@@ -17,12 +19,12 @@ rm -f  $DIR/pop.txt $DIR/mort.txt
 ## Download
 for CNT in $COUNTRIES; do
 	curl -# -u webbs@demog.berkeley.edu:foobar \
-		"http://www.mortality.org/hmd/${CNT}/STATS/Population5.txt"  \
+		"http://mortality.org/hmd/${CNT}/STATS/Population5.txt"  \
 		| gawk  -f hmd-refmt.awk -v ST=$ST -v FIN=$FIN -v MISS=0 -v SEX=$SEX \
 		>> "$DIR/pop.txt"
 	echo >> "$DIR/pop.txt"
 	curl -# -u webbs@demog.berkeley.edu:foobar \
-		"http://www.mortality.org/hmd/${CNT}/STATS/Mx_5x1.txt" \
+		"http://mortality.org/hmd/${CNT}/STATS/Mx_5x1.txt" \
 		| gawk  -f hmd-refmt.awk -v ST=$ST -v FIN=$FIN -v MISS=9.9 -v SEX=$SEX \
 		>> "$DIR/mort.txt"
 	echo >> "$DIR/mort.txt"
